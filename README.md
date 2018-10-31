@@ -30,12 +30,12 @@ then code, in a red/green/refactor cycle.
    message. It starts off empty, but each time a method like feed or play gets
    called it gets updated. E.g. when play is called, message is updated to “the
    cat is playing”. Include this message in `getDescription` -->
-1. Currently, the cat can be fed while it’s asleep. Modify the code so that this
+<!-- 1. Currently, the cat can be fed while it’s asleep. Modify the code so that this
    cannot happen and provide some feedback that you’re trying to feed a sleeping
-   cat using the message attribute.
-<!-- 1. Extend the AdaCat class to check that if the cat’s health goes below a
+   cat using the message attribute. -->
+1. Extend the AdaCat class to check that if the cat’s health goes below a
    certain value that a warning message appears in the description like “take
-   your cat to the vet” -->
+   your cat to the vet”
 
 ## Challenges - try these if you finish the core tasks
 

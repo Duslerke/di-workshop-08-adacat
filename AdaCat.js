@@ -62,6 +62,7 @@ class AdaCat { //Ada cat class to create cat object
     else {
       this.message = "sleeping and won't sense the food"
     }
+    this.healthCheck()
   }
 
   nap() { //"puts cat to sleep"
@@ -70,11 +71,13 @@ class AdaCat { //Ada cat class to create cat object
     this.isSleeping = true
     this.setTiredness(tiredness)
     this.message = "munching in it's sleep"
+    this.healthCheck()
   }
 
   wakeUp() { //"wakes cat up"
     this.isSleeping = false
     this.message = "meowing out of boredom"
+    this.healthCheck()
   }
 
   play() { //don't see why from game design standpoint i would use this. Increases hunger, updates hunger. If too hungry, cat becomes skimmer
@@ -87,6 +90,14 @@ class AdaCat { //Ada cat class to create cat object
     this.setHunger(hunger) //updates hunger
     this.setTiredness(tiredness)
     this.message = "playing"
+    this.healthCheck()
+  }
+
+  healthCheck () {
+    var catHealth = this.getHealth()
+    if (catHealth < 15) {
+      this.message = this.message + ".\n Your cat isn't feeling that well - take your cat to the vet"
+    }
   }
 
   getHealth() { //calculates cat's health based on it's other current attributes

@@ -344,4 +344,40 @@ describe('AdaCat', function() {
       expect(result).to.equal(0)
     })
   })
+
+
+  describe('#healthCheck', function() {
+    it("gives warning message if health low", function() {
+      var myCat = new AdaCat('pear', 'vader')
+      myCat.size = 17
+      myCat.healthCheck()
+      expect(myCat.message).to.equal(".\n Your cat isn't feeling that well - take your cat to the vet")
+    })
+
+    it("doesn't give a message if health ok", function() {
+      var myCat = new AdaCat('yuppy', 'carter')
+      myCat.healthCheck()
+      expect(myCat.message).to.equal("")
+    })
+
+    it("Check performed alongside all actions", function() {
+      var myCat = new AdaCat('gurguri', 'mantis')
+      var hpCheckWarning = ".\n Your cat isn't feeling that well - take your cat to the vet"
+      myCat.size = 17
+
+      myCat.feed()
+      var a1 = (myCat.message == ("eating"+hpCheckWarning) )
+      myCat.play()
+      var a2 = (myCat.message == ("playing"+hpCheckWarning) )
+      myCat.nap()
+      var a3 = (myCat.message == ("munching in it's sleep"+hpCheckWarning) )
+      myCat.wakeUp()
+      var a4 = (myCat.message == ("meowing out of boredom"+hpCheckWarning) )
+
+      expect(a1 && a2 && a3 && a4).to.equal(true)
+    })
+
+  })
+
+
 })
