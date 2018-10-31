@@ -37,8 +37,8 @@ class AdaCat { //Ada cat class to create cat object
       'their hunger level is ' + this.hunger + '/10.',
 
       'they weigh ' + this.size + ' tonnes.',
-      'their health is ' + this.getHealth() + '/30.',
-      sleepLine, 'their tiredness level is ' + this.tiredness + '/15'
+      'their health is ' + this.getHealth() + '/30.', 'their tiredness level is ' + this.tiredness + '/15',
+      sleepLine
     ] // Cat attributes are being put inside array.
     // [name, owner, weight, health, isSleeping]
 

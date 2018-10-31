@@ -60,7 +60,7 @@ describe('AdaCat', function() {
       var myCat = new AdaCat('marmite', 'alex')
       var result = myCat.getDescription()
       var lines = result.split('\n')
-      expect(lines[4]).to.equal('marmite is awake.')
+      expect(lines[5]).to.equal('marmite is awake.')
     })
 
     it('tells you if the cat is asleep', function() {
@@ -68,7 +68,7 @@ describe('AdaCat', function() {
       myCat.nap()
       var result = myCat.getDescription()
       var lines = result.split('\n')
-      expect(lines[4]).to.equal('Shh! mc splinters is sleeping.')
+      expect(lines[5]).to.equal('Shh! mc splinters is sleeping.')
     })
 
     it('includes the cat size', function() {
@@ -89,7 +89,7 @@ describe('AdaCat', function() {
       var myCat = new AdaCat('Pharaoh', 'Prof. Banner')
       var result = myCat.getDescription()
       var lines = result.split('\n')
-      expect(lines[5]).to.equal('their tiredness level is 7/15')
+      expect(lines[4]).to.equal('their tiredness level is 7/15')
     })
 
   })
