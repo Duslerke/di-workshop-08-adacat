@@ -34,6 +34,11 @@ describe('AdaCat', function() {
       var myCat = new AdaCat('toyota', 'alex')
       expect(myCat.size).to.equal(30)
     })
+
+    it('sets the tiredness attribute to 7', function () {
+      var myCat = new AdaCat('pookey', 'me')
+      expect(myCat.tiredness).to.equal(7)
+    })
   })
 
   describe('#getDescription', function() {
@@ -79,6 +84,14 @@ describe('AdaCat', function() {
       var lines = result.split('\n')
       expect(lines[3]).to.equal('their health is 25/30.')
     })
+
+    it('includes cat tiredness level', function() {
+      var myCat = new AdaCat('Pharaoh', 'Prof. Banner')
+      var result = myCat.getDescription()
+      var lines = result.split('\n')
+      expect(lines[5]).to.equal('their tiredness level is 7/15')
+    })
+
   })
 
   describe('#feed', function() {
@@ -101,6 +114,20 @@ describe('AdaCat', function() {
       myCat.feed()
       expect(myCat.size).to.equal(31)
     })
+
+    it('increases tiredness attribute by 1', function() {
+      var myCat = new AdaCat('roofus', 'rudy')
+      myCat.feed()
+      expect(myCat.tiredness).to.equal(8)
+    })
+
+    it('does not increase tiredness more than 15', function() {
+      var myCat = new AdaCat('leylie', 'afney')
+      myCat.tiredness = 15
+      myCat.feed()
+      expect(myCat.tiredness).to.equal(15)
+    })
+
   })
 
   describe('#nap', function() {
@@ -109,6 +136,13 @@ describe('AdaCat', function() {
       myCat.nap()
       expect(myCat.isSleeping).to.equal(true)
     })
+
+    it('sets the tiredness level to 0', function() {
+      var myCat = new AdaCat('hoopie', 'deidon')
+      myCat.nap()
+      expect(myCat.tiredness).to.equal(0)
+    })
+
   })
 
   describe('#wakeUp', function() {
@@ -140,6 +174,20 @@ describe('AdaCat', function() {
       myCat.play()
       expect(myCat.size).to.equal(29)
     })
+
+    it('increases tiredness by 3', function() {
+      var myCat = new AdaCat('soofu', 'jane')
+      myCat.play()
+      expect(myCat.tiredness).to.equal(10)
+    })
+
+    it('does not increase tiredness more than 15', function() {
+      var myCat = new AdaCat('boggie', 'kalle')
+      myCat.tiredness = 14
+      myCat.play()
+      expect(myCat.tiredness).to.equal(15)
+    })
+
   })
 
   describe('#getHealth', function() {
