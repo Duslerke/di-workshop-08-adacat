@@ -147,6 +147,26 @@ describe('AdaCat', function() {
       expect(myCat.message).to.equal('eating')
     })
 
+    it('cat can be fed while awake', function() {
+      var myCat = new AdaCat('gewoos', 'aster')
+      myCat.isSleeping = false
+      expect(myCat.hunger).to.equal(4) //cat has been fed
+    })
+
+    it('cat can not be fed while asleep', function() {
+      var myCat = new AdaCat('zenga', 'bein')
+      myCat.nap()
+      myCat.feed()
+      expect(myCat.hunger).to.equal(5)
+    })
+
+    it('feedback message on feeding asleep cat', function() {
+      var myCat = new AdaCat('numus', 'jastor')
+      myCat.nap()
+      myCat.feed()
+      expect(myCat.message).to.equal("sleeping and won't sense the food")
+    })
+
   })
 
   describe('#nap', function() {
