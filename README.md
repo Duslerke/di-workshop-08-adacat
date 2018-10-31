@@ -22,20 +22,20 @@ Complete the following tasks, using TDD throughout - writing unit tests first,
 then code, in a red/green/refactor cycle.
 
 1. Add comments across the code base explaining what everything does
-1. Add a new attribute to AdaCat called `tiredness`. Feeding the cat increases
+<!-- 1. Add a new attribute to AdaCat called `tiredness`. Feeding the cat increases
    tiredness by 1. Playing with the cat increases tiredness by 3. Telling the
    cat to nap resets tiredness to 0. Tiredness can be between 0 and 15. Include
-   tiredness in `getDescription`
+   tiredness in `getDescription` -->
 1. Add a new attribute to AdaCat called `message` that holds the cat’s status
    message. It starts off empty, but each time a method like feed or play gets
-   called it gets updated. E.g. when play is called message is updated to “the
+   called it gets updated. E.g. when play is called, message is updated to “the
    cat is playing”. Include this message in `getDescription`
-1. Currently, the cat can be fed while it’s asleep. Modify the code so that this
+<!-- 1. Currently, the cat can be fed while it’s asleep. Modify the code so that this
    cannot happen and provide some feedback that you’re trying to feed a sleeping
    cat using the message attribute.
 1. Extend the AdaCat class to check that if the cat’s health goes below a
    certain value that a warning message appears in the description like “take
-   your cat to the vet”
+   your cat to the vet” -->
 
 ## Challenges - try these if you finish the core tasks
 

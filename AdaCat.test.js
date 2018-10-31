@@ -39,6 +39,11 @@ describe('AdaCat', function() {
       var myCat = new AdaCat('pookey', 'me')
       expect(myCat.tiredness).to.equal(7)
     })
+
+    it('sets message (cat status) attribute to empty string', function() {
+      var myCat = new AdaCat('muphey', 'toney')
+      expect(myCat.message).to.equal('')
+    })
   })
 
   describe('#getDescription', function() {
@@ -92,6 +97,14 @@ describe('AdaCat', function() {
       expect(lines[4]).to.equal('their tiredness level is 7/15')
     })
 
+    it('include cat status message', function() {
+      var myCat = new AdaCat('stoner', 'prophet QJ')
+      myCat.message = 'cat is tearing rat apart :)'
+      var result = myCat.getDescription()
+      var lines = result.split('\n')
+      expect(lines[6]).to.equal('cat is tearing rat apart :)')
+    })
+
   })
 
   describe('#feed', function() {
@@ -128,6 +141,12 @@ describe('AdaCat', function() {
       expect(myCat.tiredness).to.equal(15)
     })
 
+    it('changes status message to eating', function() {
+      var myCat = new AdaCat('genius', 'uncle sam')
+      myCat.feed()
+      expect(myCat.message).to.equal('eating')
+    })
+
   })
 
   describe('#nap', function() {
@@ -143,6 +162,12 @@ describe('AdaCat', function() {
       expect(myCat.tiredness).to.equal(0)
     })
 
+    it("changes status message to munching in it's sleep", function() {
+      var myCat = new AdaCat('genius', 'uncle sam')
+      myCat.nap()
+      expect(myCat.message).to.equal("munching in it's sleep")
+    })
+
   })
 
   describe('#wakeUp', function() {
@@ -151,6 +176,12 @@ describe('AdaCat', function() {
       myCat.isSleeping = true
       myCat.wakeUp()
       expect(myCat.isSleeping).to.equal(false)
+    })
+
+    it("changes status message to meowing out of boredom", function() {
+      var myCat = new AdaCat('poofie', 'DJ DogeCoin')
+      myCat.wakeUp()
+      expect(myCat.message).to.equal("meowing out of boredom")
     })
   })
 
@@ -188,6 +219,11 @@ describe('AdaCat', function() {
       expect(myCat.tiredness).to.equal(15)
     })
 
+    it("changes status message to playing", function() {
+      var myCat = new AdaCat('Black Lotus', 'MTG Collector')
+      myCat.play()
+      expect(myCat.message).to.equal("playing")
+    })
   })
 
   describe('#getHealth', function() {
