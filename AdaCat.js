@@ -5,6 +5,7 @@ class AdaCat { //Ada cat class to create cat object
     this.hunger = 5
     this.isSleeping = false
     this.size = 30
+    this.tiredness = 7
   }
 
   setHunger(newHunger) { //updates cat's hunger 
@@ -15,6 +16,13 @@ class AdaCat { //Ada cat class to create cat object
       newHunger = 10
     }
     this.hunger = newHunger // updates cat hunger
+  }
+
+  setTiredness(newTiredness) {
+    if (newTiredness > 15) {
+      newTiredness = 15
+    }
+    this.tiredness = newTiredness
   }
 
   getDescription() { //gives the status upate about the cat
@@ -30,7 +38,7 @@ class AdaCat { //Ada cat class to create cat object
 
       'they weigh ' + this.size + ' tonnes.',
       'their health is ' + this.getHealth() + '/30.',
-      sleepLine
+      sleepLine, 'their tiredness level is ' + this.tiredness + '/15'
     ] // Cat attributes are being put inside array.
     // [name, owner, weight, health, isSleeping]
 
@@ -39,16 +47,21 @@ class AdaCat { //Ada cat class to create cat object
 
   feed() { //reduces hunger, updates hunger, can increase obesity
     var hunger = this.hunger - 1 //decreases hunger
+    var tiredness = this.tiredness + 1
 
     if (hunger < 3) { //if too little hunger, cat becomes fatter
       this.size = this.size + 1
     }
 
     this.setHunger(hunger) //updates hunger
+    this.setTiredness(tiredness) //updates tiredness
   }
 
   nap() { //"puts cat to sleep"
+    var tiredness = 0
+
     this.isSleeping = true
+    this.setTiredness(tiredness)
   }
 
   wakeUp() { //"wakes cat up"
@@ -57,10 +70,13 @@ class AdaCat { //Ada cat class to create cat object
 
   play() { //don't see why from game design standpoint i would use this. Increases hunger, updates hunger. If too hungry, cat becomes skimmer
     var hunger = this.hunger + 3
+    var tiredness = this.tiredness + 3
+
     if (hunger > 7) {
       this.size = this.size - 1
     }
     this.setHunger(hunger) //updates hunger
+    this.setTiredness(tiredness)
   }
 
   getHealth() { //calculates cat's health based on it's other current attributes
