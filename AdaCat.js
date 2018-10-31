@@ -1,5 +1,5 @@
-class AdaCat {
-  constructor(name, owner) {
+class AdaCat { //Ada cat class to create cat object
+  constructor(name, owner) { //only two settable attributes = cat name and owner
     this.name = name
     this.owner = owner
     this.hunger = 5
@@ -7,19 +7,19 @@ class AdaCat {
     this.size = 30
   }
 
-  setHunger(newHunger) {
-    if (newHunger < 0) {
+  setHunger(newHunger) { //updates cat's hunger 
+    if (newHunger < 0) { //constrains cat hunger to zero or above
       newHunger = 0
     }
-    if (newHunger > 10) {
+    if (newHunger > 10) {//constrains cat hunger to no more than 10
       newHunger = 10
     }
-    this.hunger = newHunger
+    this.hunger = newHunger // updates cat hunger
   }
 
-  getDescription() {
-    var sleepLine
-    if (this.isSleeping) {
+  getDescription() { //gives the status upate about the cat
+    var sleepLine //local variable within the function, we don't want to pulute anything else
+    if (this.isSleeping) { //gives a sentence output on cat's awakeness that is stored inside array later on
       sleepLine = 'Shh! ' + this.name + ' is sleeping.'
     } else {
       sleepLine = this.name + ' is awake.'
@@ -31,47 +31,48 @@ class AdaCat {
       'they weigh ' + this.size + ' tonnes.',
       'their health is ' + this.getHealth() + '/30.',
       sleepLine
-    ]
+    ] // Cat attributes are being put inside array.
+    // [name, owner, weight, health, isSleeping]
 
-    return lines.join('\n')
+    return lines.join('\n')  // array is being joined up into a single string, where each element is being separated in a new line
   }
 
-  feed() {
-    var hunger = this.hunger - 1
+  feed() { //reduces hunger, updates hunger, can increase obesity
+    var hunger = this.hunger - 1 //decreases hunger
 
-    if (hunger < 3) {
+    if (hunger < 3) { //if too little hunger, cat becomes fatter
       this.size = this.size + 1
     }
 
-    this.setHunger(hunger)
+    this.setHunger(hunger) //updates hunger
   }
 
-  nap() {
+  nap() { //"puts cat to sleep"
     this.isSleeping = true
   }
 
-  wakeUp() {
+  wakeUp() { //"wakes cat up"
     this.isSleeping = false
   }
 
-  play() {
+  play() { //don't see why from game design standpoint i would use this. Increases hunger, updates hunger. If too hungry, cat becomes skimmer
     var hunger = this.hunger + 3
     if (hunger > 7) {
       this.size = this.size - 1
     }
-    this.setHunger(hunger)
+    this.setHunger(hunger) //updates hunger
   }
 
-  getHealth() {
+  getHealth() { //calculates cat's health based on it's other current attributes
     // the ideal weight for cats is 30
-    // this futher they are from this, the less
+    // the futher they are from this, the less
     // healthy they are
-    var sizeDifferenceFromIdeal = Math.abs(this.size - 30)
+    var sizeDifferenceFromIdeal = Math.abs(this.size - 30) 
 
     // sizeScore starts at thirty, and gets
     // smaller as the cat's size gets further
     // from the ideal weight
-    var sizeScore = 30 - sizeDifferenceFromIdeal
+    var sizeScore = 30 - sizeDifferenceFromIdeal //how much cat size deviates from perfect cat
 
     // health score gets lower as the cat gets
     // more hungry
@@ -87,4 +88,4 @@ class AdaCat {
   }
 }
 
-module.exports = AdaCat
+module.exports = AdaCat //since this is node need to show what to export
