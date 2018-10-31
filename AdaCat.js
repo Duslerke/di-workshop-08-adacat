@@ -47,16 +47,21 @@ class AdaCat { //Ada cat class to create cat object
   }
 
   feed() { //reduces hunger, updates hunger, can increase obesity
-    var hunger = this.hunger - 1 //decreases hunger
-    var tiredness = this.tiredness + 1
-
-    if (hunger < 3) { //if too little hunger, cat becomes fatter
-      this.size = this.size + 1
+    if(!this.isSleeping) {
+      var hunger = this.hunger - 1 //decreases hunger
+      var tiredness = this.tiredness + 1
+  
+      if (hunger < 3) { //if too little hunger, cat becomes fatter
+        this.size = this.size + 1
+      }
+  
+      this.setHunger(hunger) //updates hunger
+      this.setTiredness(tiredness) //updates tiredness
+      this.message = "eating"
     }
-
-    this.setHunger(hunger) //updates hunger
-    this.setTiredness(tiredness) //updates tiredness
-    this.message = "eating"
+    else {
+      this.message = "sleeping and won't sense the food"
+    }
   }
 
   nap() { //"puts cat to sleep"

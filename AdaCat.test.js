@@ -150,6 +150,7 @@ describe('AdaCat', function() {
     it('cat can be fed while awake', function() {
       var myCat = new AdaCat('gewoos', 'aster')
       myCat.isSleeping = false
+      myCat.feed()
       expect(myCat.hunger).to.equal(4) //cat has been fed
     })
 
