@@ -99,10 +99,10 @@ describe('AdaCat', function() {
 
     it('include cat status message', function() {
       var myCat = new AdaCat('stoner', 'prophet QJ')
-      myCat.message = 'cat is tearing rat apart :)'
+      myCat.message = 'tearing rat apart :)'
       var result = myCat.getDescription()
       var lines = result.split('\n')
-      expect(lines[6]).to.equal('cat is tearing rat apart :)')
+      expect(lines[6]).to.equal('the cat is tearing rat apart :)')
     })
 
   })

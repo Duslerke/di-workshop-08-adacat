@@ -6,6 +6,7 @@ class AdaCat { //Ada cat class to create cat object
     this.isSleeping = false
     this.size = 30
     this.tiredness = 7
+    this.message = ""
   }
 
   setHunger(newHunger) { //updates cat's hunger 
@@ -38,7 +39,7 @@ class AdaCat { //Ada cat class to create cat object
 
       'they weigh ' + this.size + ' tonnes.',
       'their health is ' + this.getHealth() + '/30.', 'their tiredness level is ' + this.tiredness + '/15',
-      sleepLine
+      sleepLine, 'the cat is ' + this.message
     ] // Cat attributes are being put inside array.
     // [name, owner, weight, health, isSleeping]
 
@@ -55,6 +56,7 @@ class AdaCat { //Ada cat class to create cat object
 
     this.setHunger(hunger) //updates hunger
     this.setTiredness(tiredness) //updates tiredness
+    this.message = "eating"
   }
 
   nap() { //"puts cat to sleep"
@@ -62,10 +64,12 @@ class AdaCat { //Ada cat class to create cat object
 
     this.isSleeping = true
     this.setTiredness(tiredness)
+    this.message = "munching in it's sleep"
   }
 
   wakeUp() { //"wakes cat up"
     this.isSleeping = false
+    this.message = "meowing out of boredom"
   }
 
   play() { //don't see why from game design standpoint i would use this. Increases hunger, updates hunger. If too hungry, cat becomes skimmer
@@ -77,6 +81,7 @@ class AdaCat { //Ada cat class to create cat object
     }
     this.setHunger(hunger) //updates hunger
     this.setTiredness(tiredness)
+    this.message = "playing"
   }
 
   getHealth() { //calculates cat's health based on it's other current attributes
